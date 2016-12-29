@@ -1,46 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
-import React, { Component } from 'react';
+// Import a library to help create a component
+import React from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-export default class albums extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-      </View>
-    );
-  }
-}
+import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+// Create a component
+const App = () => (
+  <View>
+    <Header headerText="Albums!" />
+    <AlbumList />
+  </View>
+);
 
-AppRegistry.registerComponent('albums', () => albums);
+// Render the component to the device
+AppRegistry.registerComponent('albums', () => App);
