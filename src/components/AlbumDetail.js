@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Text, View } from 'react-native';
+import { Linking, Image, Text, View } from 'react-native';
 
 import Card from './Card';
 import CardSection from './CardSection';
@@ -21,6 +21,10 @@ const AlbumDetail = (props) => {
     headerContentStyle,
     albumCover
   } = styles;
+
+  function handleBuyAlbum() {
+    Linking.openURL(url);
+  }
 
   return (
     <Card>
@@ -46,7 +50,9 @@ const AlbumDetail = (props) => {
       </CardSection>
 
       <CardSection>
-        <BuyButton url={url} />
+        <BuyButton handleBuyButton={handleBuyAlbum}>
+          Buy {title} Album
+        </BuyButton>
       </CardSection>
     </Card>
   );
